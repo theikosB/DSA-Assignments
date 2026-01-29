@@ -19,10 +19,7 @@ class Xoroshiro128Plus:
     The generator maintains two 64-bit integers as its internal state.
     Together they form a 128-bit memory.
 
-    Every new random number:
-        - depends on the previous state
-        - modifies the state
-        - produces a new output
+    Every new random number depends on the previous state, modifies the state and produces a new output.
     """
 
     def __init__(self, seed1=0x123456789ABCDEF0, seed2=0x0FEDCBA987654321):
@@ -30,10 +27,8 @@ class Xoroshiro128Plus:
         Initialize the generator with two seeds.
 
         Parameters:-
-        seed1 : int
-            First 64-bit seed value
-        seed2 : int
-            Second 64-bit seed value
+        seed1 : First 64-bit seed value
+        seed2 : Second 64-bit seed value
 
         These two values together form the 128-bit internal state.
         """
@@ -64,8 +59,7 @@ class Xoroshiro128Plus:
         5. Return output
 
         Returns:-
-        int
-            A 64-bit pseudo-random integer
+        A 64-bit pseudo-random integer
         """
 
         s0 = self.s0
@@ -87,11 +81,9 @@ class Xoroshiro128Plus:
         This converts a 64-bit random number into a bounded integer.
 
         Parameters:-
-        max_value : int
-            Upper bound (exclusive)
+        max_value : Upper bound (exclusive)
 
         Returns:-
-        int
-            Random integer in [0, max_value - 1]
+        Random integer in [0, max_value - 1]
         """
         return self.next() % max_value

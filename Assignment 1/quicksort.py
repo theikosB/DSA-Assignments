@@ -8,12 +8,9 @@ def swap(arr, i, j):
     Swap two elements in a list.
 
     Parameters:-
-    arr : list
-        The list in which elements are swapped
-    i : int
-        Index of first element
-    j : int
-        Index of second element
+    arr : The list in which elements are swapped
+    i : Index of first element
+    j : Index of second element
     """
     temp = arr[i]
     arr[i] = arr[j]
@@ -25,19 +22,15 @@ def partition(arr, low, high, ascending=True):
     Partition the array (comparing with the pivot) around a pivot element.
 
     Parameters:-
-    arr : list
-        The list being sorted
-    low : int
-        Starting index of the sub-array
-    high : int
-        Ending index of the sub-array
-    ascending : bool
+    arr : The list being sorted
+    low : Starting index of the sub-array
+    high : Ending index of the sub-array
+    ascending : 
         True  → sort in increasing order
         False → sort in decreasing order
 
     Returns:-
-    int
-        Final index position of the pivot
+    Final index position of the pivot
     """
 
     # Choose pivot (here we use the last element)
@@ -69,13 +62,10 @@ def quicksort(arr, low=0, high=None, ascending=True):
     This function sorts the array in-place using recursion.
 
     Parameters:-
-    arr : list
-        List of elements to be sorted
-    low : int
-        Starting index of the current segment
-    high : int
-        Ending index of the current segment
-    ascending : bool
+    arr : List of elements to be sorted
+    low : Starting index of the current segment
+    high : Ending index of the current segment
+    ascending :
         True  → increasing order
         False → decreasing order
     """
