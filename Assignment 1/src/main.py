@@ -1,11 +1,3 @@
-"""
-  Main Driver Program
-
-  This file integrates:
-    - Xoroshiro128+ random number generator
-    - QuickSort sorting algorithm
-"""
-
 # Import custom PRNG
 from xoroshiro128plus import Xoroshiro128Plus
 
@@ -17,17 +9,6 @@ from collections import defaultdict
 
 
 def generate_random_list(prng, size):
-    """
-    Generate a list of random integers using a custom PRNG.
-
-    Parameters:-
-    prng : Xoroshiro128Plus
-    size : Number of random integers to generate
-        
-    Returns:-
-    List of pseudo-random integers
-    """
-
     numbers = []
     for _ in range(size):
         numbers.append(prng.random_int(size))
@@ -36,15 +17,6 @@ def generate_random_list(prng, size):
 
 
 def print_list(lst, title, limit=20):
-    """
-    Print a list in a readable format.
-
-    Parameters:-
-    lst : List to be printed
-    title : Title message
-    limit : Maximum number of elements to display
-    """
-
     print(title)
 
     if len(lst) <= limit:
@@ -57,18 +29,12 @@ def print_list(lst, title, limit=20):
 
 # Randomness Check Utilities
 def frequency_distribution(numbers):
-    """
-    Compute frequency of each generated number
-    """
     freq = defaultdict(int)
     for num in numbers:
         freq[num] += 1
     return freq
 
 def mean_variance_of_frequencies(freq_dict):
-    """
-    Compute mean and variance of frequencies
-    """
     freqs = list(freq_dict.values())
     n = len(freqs)
 
@@ -81,11 +47,6 @@ def mean_variance_of_frequencies(freq_dict):
     return mean, var
 
 def randomness_check(numbers):
-    """
-    Perform a simple randomness check using
-    frequency mean and variance
-    """
-
     print("\nRandomness Check:-")
 
     freq = frequency_distribution(numbers)
@@ -99,7 +60,7 @@ def randomness_check(numbers):
 
     print("\nInterpretation:")
 
-    if var < mean:
+    if (mean < 1.5) and (var < 0.5):
         print("→ Distribution looks reasonably uniform.")
     else:
         print("→ Distribution shows noticeable non-uniformity/clustering.")
@@ -114,12 +75,8 @@ def randomness_check(numbers):
 
 
 def main():
-    """
-    Main execution function
-    """
-
     # Configuration Parameters
-    N = 10  # Number of random integers
+    N = 1000  # Number of random integers
     ASCENDING = True  # Sorting order (True = increasing, False = decreasing)
 
     # Initialize PRNG
