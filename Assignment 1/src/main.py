@@ -8,9 +8,9 @@ from quicksort import quicksort
 from collections import defaultdict   
 
 
-def generate_random_list(prng, size):
+def generate_random_list(prng, N, size):
     numbers = []
-    for _ in range(size):
+    for _ in range(N):
         numbers.append(prng.random_int(size))
 
     return numbers
@@ -46,7 +46,7 @@ def mean_variance_of_frequencies(freq_dict):
 
     return mean, var
 
-def randomness_check(numbers):
+def randomness_check(numbers): # Only applicable if N = Size 
     print("\nRandomness Check:-")
 
     freq = frequency_distribution(numbers)
@@ -76,14 +76,15 @@ def randomness_check(numbers):
 
 def main():
     # Configuration Parameters
-    N = 1000  # Number of random integers
+    N = 10  # Number of random integers
+    Size = 100  #Range of numbers generated from (0-Size)
     ASCENDING = True  # Sorting order (True = increasing, False = decreasing)
 
     # Initialize PRNG
     prng = Xoroshiro128Plus()
 
     # Generate Random Numbers
-    random_numbers = generate_random_list(prng, N)
+    random_numbers = generate_random_list(prng, N, Size)
 
     # Display Before Sorting
     print_list(random_numbers, "Random Numbers (Before Sorting):")
